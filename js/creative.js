@@ -1,6 +1,66 @@
+
+
+
 (function($) {
     "use strict"; // Start of use strict
 
+
+
+//jQuery is required to run this code
+$( document ).ready(function() {
+
+    scaleVideoContainer();
+
+    initBannerVideoSize('.video-container .poster img');
+    initBannerVideoSize('.video-container .filter');
+    initBannerVideoSize('.video-container video');
+
+    $(window).on('resize', function() {
+        scaleVideoContainer();
+        scaleBannerVideoSize('.video-container .poster img');
+        scaleBannerVideoSize('.video-container .filter');
+        scaleBannerVideoSize('.video-container video');
+
+        scaleBannerVideoSize().fadeOut('slow');
+        scaleVideoContainer().fadeOut('slow');
+    });
+
+   
+   // scaleVideoContainerHider('.video-container video');
+   $(window).setTimeout(function() {
+    $('.homepage-hero-module').addClass('hide');
+    $('.homepage-hero-module').fadeOut('slow');
+   }, 500);
+
+
+});
+
+
+
+function scaleVideoContainer() {
+
+    var height = $(window).height() + 5;
+    var unitHeight = parseInt(height) + 'px';
+    $('.homepage-hero-module').css('height',unitHeight);
+   
+
+}
+function scaleVideoContainerHider(){
+    
+    $('.homepage-hero-module').css('height', '0').delay(500);
+    $('.homepage-hero-module').css('width', '0').delay(500);
+}
+
+function initBannerVideoSize(element){
+
+    $(element).each(function(){
+        $(this).data('height', $(this).height());
+        $(this).data('width', $(this).width());
+    });
+
+    scaleBannerVideoSize(element);
+
+}//
     // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(document).on('click', 'a.page-scroll', function(event) {
         var $anchor = $(this);

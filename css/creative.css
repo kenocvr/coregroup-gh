@@ -3,6 +3,58 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+ //vid vid//
+ .hide {
+    display: none !important; 
+ }
+ .homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+
+
+
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    
+    position: absolute;
+    
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    z-index: -1000;
+}
+.video-container video {
+    position: absolute;
+    
+    bottom: 0;
+    z-index: -1000;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
 html,
 body {
   height: 100%;
@@ -39,6 +91,7 @@ h6 {
 }
 p {
   font-size: 16px;
+  color: #FFFFFF;
   line-height: 1.5;
   margin-bottom: 20px;
 }
@@ -147,7 +200,8 @@ aside {
   }
 }
 header {
-  position: relative;
+  position: absolute;
+  z-index: 1000;
   width: 100%;
   min-height: auto;
   -webkit-background-size: cover;
@@ -157,29 +211,35 @@ header {
   background-position: center;
   background-image: url('../img/header.jpg');
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.7);
 }
 header .header-content {
   position: relative;
+  z-index: 1000
   text-align: center;
   padding: 100px 15px 100px;
   width: 100%;
 }
 header .header-content .header-content-inner h1 {
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 50px;
+  text-shadow: 30px 0 black, 0 30px black, 30px 0 black, 0 30px black;
 }
 header .header-content .header-content-inner hr {
   margin: 30px auto;
 }
 header .header-content .header-content-inner p {
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
+  text-decoration-line: black;
+  color: black;
   font-size: 16px;
+  
   margin-bottom: 50px;
+  outline: black;
+  text-decoration-color: black;
 }
 @media (min-width: 768px) {
   header {
@@ -206,6 +266,7 @@ header .header-content .header-content-inner p {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+
   }
 }
 .section-heading {
@@ -400,7 +461,7 @@ fieldset[disabled] .btn-primary.active {
 }
 ::selection {
   color: white;
-  text-shadow: none;
+  text-shadow: 10px;
   background: #222222;
 }
 img::selection {
